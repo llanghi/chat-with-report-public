@@ -17,9 +17,9 @@ clear_chat = st.sidebar.button("Clear conversation")
 # Session state
 if clear_chat or "messages" not in st.session_state:
     st.session_state.messages = []
-    st.session_state.messages.append({"role": "assistant", "content": "Ask a question about the CSIRO-GESIRA report on resources in the Northern Perth Basin."})
+    st.session_state.messages.append({"role": "assistant", "content": "Ask any question about natural resource interactions in the Northern Perth Basin."})
 
-st.title("Ask a question about CSIRO-GISERA report")
+st.title("Interrogate the CSIRO-GISERA report")
 st.caption("Local RAG: LlamaIndex + PyMuPDF + FastAPI")
 
 # Chat display
@@ -70,6 +70,7 @@ if q:
         with st.chat_message("assistant"):
             st.error(err)
         st.session_state.messages.append({"role": "assistant", "content": err})
+
 
 
 
