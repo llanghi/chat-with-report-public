@@ -1,5 +1,6 @@
 # app.py — local RAG server (LlamaIndex + PyMuPDF) with FastAPI
 import os
+PORT = int(os.getenv("PORT", "7861"))
 import glob
 from pathlib import Path
 from typing import Dict, List, Any
@@ -208,3 +209,4 @@ def ask(payload: Dict[str, str] = Body(...)):
         return {"answer": answer_text, "citations": sources}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"QA error: {e}" )
+
