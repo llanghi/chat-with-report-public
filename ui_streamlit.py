@@ -4,7 +4,7 @@ import time
 import requests
 import streamlit as st
 
-API_URL_DEFAULT = os.getenv("RAG_API_URL", "http://127.0.0.1:7861/ask")
+API_URL_DEFAULT = os.getenv("RAG_API_URL", "https://chat-with-report-demo.onrender.com/ask")
 
 st.set_page_config(page_title="Chat with the Report", page_icon="📄", layout="wide")
 
@@ -70,6 +70,7 @@ if q:
         with st.chat_message("assistant"):
             st.error(err)
         st.session_state.messages.append({"role": "assistant", "content": err})
+
 
 
 
